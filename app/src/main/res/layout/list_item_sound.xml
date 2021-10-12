@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bignerdbranch.android.beatbox.SoundViewModel" />
+    </data>
+    <!--`Song title` is equivalent to "Song title" in kotlin/java code.NOTE: it's ```` and not ''''-->
+    <!--...??... means if viewModel.title is null, return the String `No file`-->
+    <!--  android:text="@{`Song title: ` + viewModel.title ?? `No File`}"-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:onClick="@{() -> viewModel.onButtonClicked()}"
+            android:text="@{viewModel.title}"
+            tools:text="Song Name"
+            />
+    </FrameLayout>
+
+</layout>
